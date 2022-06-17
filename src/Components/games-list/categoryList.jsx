@@ -7,7 +7,6 @@ import React, {
 } from "react";
 
 export default function CategoryList({
-	listSelection,
 	listSelect,
 	setListSelection,
 }) {
@@ -23,8 +22,11 @@ export default function CategoryList({
 
 	return (
 		<div>
+			<h3>Categories</h3>
+			<hr />
 			{categories.map((c) => (
-				<div
+				<button
+					type="button"
 					key={c.name}
 					onClick={() => {
 						listSelect();
@@ -32,9 +34,8 @@ export default function CategoryList({
 					}}
 				>
 					{c.name}
-				</div>
+				</button>
 			))}
-			<h1>{listSelection} listSelection</h1>
 		</div>
 	);
 }

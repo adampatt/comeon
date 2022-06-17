@@ -6,6 +6,7 @@ import React, {
 import GamesCard from "./gamesCard";
 import CategoryList from "./categoryList";
 import SearchBar from "./searchBar";
+import Navigation from "../navigation";
 
 export default function GamesList() {
 	const [games, setGames] = useState([]);
@@ -25,7 +26,6 @@ export default function GamesList() {
 			.then((data) => setGames(data));
 	}, []);
 
-	console.log(games);
 	const OnListHander = () => {
 		setSearchBar(false);
 		setCatList(true);
@@ -48,6 +48,7 @@ export default function GamesList() {
 	);
 	return (
 		<div>
+			<Navigation />
 			{catList ? (
 				gamesList.map((gameData) => (
 					<GamesCard

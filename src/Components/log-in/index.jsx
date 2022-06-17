@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authcontext";
+import Button from "../button";
 
 const userSignInDetails = {
 	name: "",
@@ -67,6 +68,7 @@ export default function Login() {
 			) : null}
 
 			<h1>Log-in</h1>
+			<Button text="hello" arrow="left" />
 			<form onSubmit={handleSubmit}>
 				<label>Name</label>
 				<input

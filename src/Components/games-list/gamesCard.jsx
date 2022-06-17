@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
 import React from "react";
@@ -11,13 +13,19 @@ export default function GamesCard({
 }) {
 	return (
 		<div>
-			<p>Icon {icon}</p>
-			<p>Name: {name}</p>
-			<p>Description:{description}</p>
-			<p>
-				link{" "}
-				<Link to={`/gameplay/${code}`}>Hello</Link>
-			</p>
+			<div>
+				<img
+					src={require(`../../${icon}`)}
+					alt={name}
+				/>
+			</div>
+			<div>
+				<p>{name}</p>
+				<p>{description}</p>
+				<p>
+					<Link to={`/gameplay/${code}`}>Play</Link>
+				</p>
+			</div>
 		</div>
 	);
 }
