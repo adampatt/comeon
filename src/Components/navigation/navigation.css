@@ -1,0 +1,34 @@
+.navigationContainer {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 2em;
+}
+
+.profileButtonContainer {
+	display: flex;
+	padding-bottom: 1em;
+}
+
+@media (min-width: 375px) {
+	.navigationContainer {
+		flex-direction: column;
+	}
+	.profileButtonContainer {
+		flex-direction: column-reverse;
+	}
+}
+
+@media (min-width: 576px) {
+	.navigationContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding-bottom: 2em;
+	}
+	.profileButtonContainer {
+		flex-direction: column;
+	}
+	.buttonHolder {
+		width: 50%;
+	}
+}

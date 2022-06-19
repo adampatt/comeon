@@ -5,6 +5,7 @@ import React, {
 	useState,
 	useEffect,
 } from "react";
+import "./categoryList.css";
 
 export default function CategoryList({
 	listSelect,
@@ -21,21 +22,24 @@ export default function CategoryList({
 	}, []);
 
 	return (
-		<div>
+		<div className="catlistContainer">
 			<h3>Categories</h3>
 			<hr />
-			{categories.map((c) => (
-				<button
-					type="button"
-					key={c.name}
-					onClick={() => {
-						listSelect();
-						setListSelection(c.id);
-					}}
-				>
-					{c.name}
-				</button>
-			))}
+			<div className="buttonholder">
+				{categories.map((c) => (
+					<button
+						className="catbutton"
+						type="button"
+						key={c.name}
+						onClick={() => {
+							listSelect();
+							setListSelection(c.id);
+						}}
+					>
+						<h3>{c.name}</h3>
+					</button>
+				))}
+			</div>
 		</div>
 	);
 }

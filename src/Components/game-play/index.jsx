@@ -5,23 +5,24 @@ import {
 	useParams,
 	Link,
 } from "react-router-dom";
+import { ButtonLeft } from "../button";
+import "./gameplay.css";
 
 function GamePlay() {
 	const { code } = useParams();
-	console.log(code);
 	useEffect(
 		() => window.comeon.game.launch(code),
 		[code]
 	);
 
 	return (
-		<div>
-			<p>
-				<Link to="/gameslist">Hello</Link>
-			</p>
-			<div>helo</div>
-			<div id="game-launch"> </div>
-			<h1>Hello</h1>;
+		<div className="gameplayContainer">
+			<Link to="/gameslist">
+				<ButtonLeft text="Go back" type="button" />
+			</Link>
+			<div className="gameLaunchContainer">
+				<div id="game-launch" />
+			</div>
 		</div>
 	);
 }

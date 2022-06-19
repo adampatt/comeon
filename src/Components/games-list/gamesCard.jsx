@@ -4,6 +4,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
+import { ButtonRight } from "../button";
+import "./gameslist.css";
 
 export default function GamesCard({
 	description,
@@ -12,19 +14,20 @@ export default function GamesCard({
 	code,
 }) {
 	return (
-		<div>
-			<div>
+		<div className="cardContainer">
+			<div className="imgContainer">
 				<img
 					src={require(`../../${icon}`)}
 					alt={name}
+					className="ssa"
 				/>
 			</div>
-			<div>
-				<p>{name}</p>
+			<div className="textHolder">
+				<h3>{name}</h3>
 				<p>{description}</p>
-				<p>
-					<Link to={`/gameplay/${code}`}>Play</Link>
-				</p>
+				<Link to={`/gameplay/${code}`}>
+					<ButtonRight type="button" text="Play" />
+				</Link>
 			</div>
 		</div>
 	);

@@ -6,7 +6,8 @@ import React, {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authcontext";
-import Button from "../button";
+import { ButtonRight } from "../button";
+import "./login.css";
 
 const userSignInDetails = {
 	name: "",
@@ -62,32 +63,48 @@ export default function Login() {
 	};
 
 	return (
-		<div>
-			{authplayerData.status === "fail" ? (
-				<h2>{authplayerData.error}</h2>
-			) : null}
-
-			<h1>Log-in</h1>
-			<Button text="hello" arrow="left" />
-			<form onSubmit={handleSubmit}>
-				<label>Name</label>
+		<div className="formcontainer">
+			<h2>Log-in</h2>
+			<form
+				onSubmit={handleSubmit}
+				className="signinForm"
+			>
+				<label className="signinLabel">
+					<h3>Name</h3>
+				</label>
 				<input
+					className="signinInput"
 					type="text"
 					value={signInDetails.name}
 					name="name"
 					onChange={handleChange}
 				/>
-				<label>Password</label>
+				<label className="signinLabel">
+					<h3>Password</h3>
+				</label>
 				<input
+					className="signinInput"
 					type="password"
 					value={signInDetails.password}
 					name="password"
 					onChange={handleChange}
 				/>
-				<button type="submit" id="sign-in-btn">
+
+				<ButtonRight
+					type="submit"
+					id="sign-in-btn"
+					text="Sign-In"
+				>
 					Sign-In
-				</button>
+				</ButtonRight>
 			</form>
+			<div className="errorText">
+				{authplayerData.status === "fail" ? (
+					<p>
+						The {authplayerData.error} please try again.
+					</p>
+				) : null}
+			</div>
 		</div>
 	);
 }

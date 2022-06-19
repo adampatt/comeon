@@ -4,6 +4,7 @@ import React, {
 	useEffect,
 } from "react";
 import useDebounce from "../../hooks/useDebounce";
+import "./searchbar.css";
 
 function SearchBar({
 	setSearchBarResult,
@@ -23,6 +24,7 @@ function SearchBar({
 	return (
 		<div>
 			<input
+				className="searchbarInput"
 				placeholder="Search Game"
 				onChange={(e) =>
 					setSearchTerm(e.target.value)
@@ -31,8 +33,6 @@ function SearchBar({
 					SearchBarDataSelection();
 				}}
 			/>
-			<p>{debouncedSearchTerm}</p>
-			<p>{}</p>
 		</div>
 	);
 }

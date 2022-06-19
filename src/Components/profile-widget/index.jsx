@@ -2,19 +2,20 @@
 /* eslint-disable global-require */
 import React from "react";
 import { useAuth } from "../../context/authcontext";
+import "./profilewidget.css";
 
 export default function ProfileWidget() {
 	const { authplayerData } = useAuth();
-	console.log(authplayerData);
 	return (
-		<div>
+		<div className="widgetContainer">
 			<img
 				src={require(`../../${authplayerData.player.avatar}`)}
 				alt={authplayerData.player.name}
+				className="widgetAvatar"
 			/>
-			<div>
+			<div className="widgetTextContainer">
 				<h3>{authplayerData.player.name}</h3>
-				<h4>{authplayerData.player.event}</h4>
+				<p>{authplayerData.player.event}</p>
 			</div>
 		</div>
 	);

@@ -1,0 +1,11 @@
+.gameplayContainer {
+	height: 100%;
+}
+
+.gameLaunchContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1em;
+}
