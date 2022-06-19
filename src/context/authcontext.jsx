@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable react/prop-types */
 import * as React from "react";
+import PropTypes from "prop-types";
 import { Navigate } from "react-router-dom";
 
 const authuserDetails = {
@@ -24,6 +23,7 @@ export function AuthProvider({ children }) {
 		authsetPlayerData(data);
 	};
 
+	// eslint-disable-next-line react/jsx-no-constructed-context-values
 	const value = {
 		authplayerData,
 		setAuthSetPlayerData,
@@ -44,3 +44,10 @@ export function ProtectedRoute({ children }) {
 
 	return children;
 }
+
+AuthProvider.propTypes = {
+	children: PropTypes.element.isRequired,
+};
+ProtectedRoute.propTypes = {
+	children: PropTypes.element.isRequired,
+};

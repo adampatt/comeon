@@ -25,7 +25,7 @@ body {
   5. Improve text rendering
 */
 body {
-	line-height: 1.5;
+	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
 /*
@@ -59,6 +59,7 @@ h4,
 h5,
 h6 {
 	overflow-wrap: break-word;
+	font-family: Arial, Helvetica, sans-serif;
 }
 /*
   9. Create a root stacking context
@@ -66,4 +67,27 @@ h6 {
 #root,
 #__next {
 	isolation: isolate;
+}
+
+body {
+	background-color: #444;
+}
+
+.main {
+	background-color: #ffffff;
+	margin: 0 auto;
+	padding: 2em 2em 2em;
+	max-width: 990px;
+}
+
+hr {
+	border-top: 1px solid lightgray;
+}
+
+h3 {
+	padding-bottom: 0.5em;
+}
+
+a {
+	text-decoration: none;
 }

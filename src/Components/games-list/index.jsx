@@ -5,7 +5,8 @@ import React, {
 } from "react";
 import GamesCard from "./gamesCard";
 import CategoryList from "./categoryList";
-import SearchBar from "./searchBar";
+import Navigation from "../navigation";
+import "./gameslist.css";
 
 export default function GamesList() {
 	const [games, setGames] = useState([]);
@@ -25,7 +26,6 @@ export default function GamesList() {
 			.then((data) => setGames(data));
 	}, []);
 
-	console.log(games);
 	const OnListHander = () => {
 		setSearchBar(false);
 		setCatList(true);
@@ -47,52 +47,65 @@ export default function GamesList() {
 			g.description.includes(searchBarResult)
 	);
 	return (
-		<div>
-			{catList ? (
-				gamesList.map((gameData) => (
-					<GamesCard
-						categoryIds={gameData.categoryIds}
-						description={gameData.description}
-						code={gameData.code}
-						icon={gameData.icon}
-						name={gameData.name}
-					/>
-				))
-			) : searchBar ? (
-				<div>
-					{searchBarGames.map((gameData) => (
-						<GamesCard
-							categoryIds={gameData.categoryIds}
-							description={gameData.description}
-							code={gameData.code}
-							icon={gameData.icon}
-							name={gameData.name}
-						/>
-					))}
-				</div>
-			) : (
-				games.map((gameData) => (
-					<GamesCard
-						categoryIds={gameData.categoryIds}
-						description={gameData.description}
-						code={gameData.code}
-						icon={gameData.icon}
-						name={gameData.name}
-					/>
-				))
-			)}
-			<CategoryList
-				listSelect={OnListHander}
-				searchWord={listSelection}
-				setListSelection={setListSelection}
-			/>
-			<SearchBar
+		<section className="pcontainer">
+			<Navigation
 				setSearchBarResult={setSearchBarResult}
 				SearchBarDataSelection={
 					SearchBarDataSelection
 				}
 				searchBarResult={searchBarResult}
 			/>
-		</div>
+			<div className="gameslistcontainer">
+				<div className="gameslist">
+					<h3>Games</h3>
+					<hr className="headinghr" />
+					{catList ? (
+						gamesList.map((gameData) => (
+							<>
+								<GamesCard
+									categoryIds={gameData.categoryIds}
+									description={gameData.description}
+									code={gameData.code}
+									icon={gameData.icon}
+									name={gameData.name}
+								/>
+								<hr className="cardhr" />
+							</>
+						))
+					) : searchBar ? (
+						<div>
+							{searchBarGames.map((gameData) => (
+								<GamesCard
+									categoryIds={gameData.categoryIds}
+									description={gameData.description}
+									code={gameData.code}
+									icon={gameData.icon}
+									name={gameData.name}
+								/>
+							))}
+							<hr className="cardhr" />
+						</div>
+					) : (
+						games.map((gameData) => (
+							<>
+								<GamesCard
+									categoryIds={gameData.categoryIds}
+									description={gameData.description}
+									code={gameData.code}
+									icon={gameData.icon}
+									name={gameData.name}
+								/>
+								<hr className="cardhr" />
+							</>
+						))
+					)}
+				</div>
+				<CategoryList
+					listSelect={OnListHander}
+					searchWord={listSelection}
+					setListSelection={setListSelection}
+				/>
+			</div>
+		</section>
 	);
 }

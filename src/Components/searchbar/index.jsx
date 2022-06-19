@@ -1,9 +1,10 @@
-/* eslint-disable react/prop-types */
 import React, {
 	useState,
 	useEffect,
 } from "react";
+import PropTypes from "prop-types";
 import useDebounce from "../../hooks/useDebounce";
+import "./searchbar.css";
 
 function SearchBar({
 	setSearchBarResult,
@@ -23,6 +24,7 @@ function SearchBar({
 	return (
 		<div>
 			<input
+				className="searchbarInput"
 				placeholder="Search Game"
 				onChange={(e) =>
 					setSearchTerm(e.target.value)
@@ -31,10 +33,14 @@ function SearchBar({
 					SearchBarDataSelection();
 				}}
 			/>
-			<p>{debouncedSearchTerm}</p>
-			<p>{}</p>
 		</div>
 	);
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+	setSearchBarResult: PropTypes.func.isRequired,
+	SearchBarDataSelection:
+		PropTypes.func.isRequired,
+};

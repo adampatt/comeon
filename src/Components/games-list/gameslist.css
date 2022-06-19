@@ -1,0 +1,104 @@
+.gameslistcontainer {
+	display: flex;
+}
+
+.cardContainer {
+	display: flex;
+	padding: 1em 2em 1em 0;
+}
+
+.headinghr {
+	padding-right: 2em;
+}
+
+.imgContainer {
+	min-width: 140px;
+	max-width: 30%;
+}
+
+.textHolder {
+	width: auto;
+	flex-direction: column;
+	display: flex;
+	padding-left: 2em;
+}
+
+a {
+	padding-top: 1em;
+	align-self: flex-end;
+}
+
+.cardhr:last-child {
+	visibility: hidden;
+}
+
+@media (min-width: 375px) {
+	.gameslistcontainer {
+		flex-direction: column-reverse;
+	}
+	.gameslist {
+		width: 100%;
+	}
+	.cardContainer {
+		flex-direction: column;
+	}
+	.textHolder {
+		padding-left: 0;
+		padding-top: 1em;
+	}
+
+	a {
+		width: 100%;
+	}
+	button {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+@media (min-width: 576px) {
+	.gameslistcontainer {
+		flex-direction: row;
+	}
+
+	.gameslist {
+		width: 80%;
+	}
+
+	.cardContainer {
+		display: flex;
+	}
+
+	.textHolder {
+		padding-left: 0em;
+	}
+
+	.cardhr:last-child {
+		visibility: hidden;
+	}
+}
+
+@media (min-width: 820px) {
+	.gameslistcontainer {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.gameslist {
+		width: 80%;
+	}
+
+	.cardContainer {
+		display: flex;
+		padding: 1em 2em 1em 0;
+		flex-direction: row;
+	}
+
+	.textHolder {
+		padding: 0 0 0 2em;
+	}
+
+	a {
+		display: flex;
+	}
+}

@@ -1,0 +1,28 @@
+.signinForm {
+	padding-top: 1rem;
+}
+
+.signinLabel {
+	padding: 2em 0em 3em 0em;
+}
+
+.signinInput {
+	height: 2em;
+	padding: 1em 0 1em 0.5em;
+	border: 1px solid lightgray;
+	border-radius: 0.2em;
+	font-family: Arial, Helve;
+	margin-bottom: 1em;
+}
+
+.signinInput:focus {
+	border: 1px solid lightgray;
+}
+
+.formcontainer {
+	min-height: 250px;
+}
+
+.errorText {
+	padding-top: 1em;
+}

@@ -1,11 +1,11 @@
-/* eslint-disable no-undef */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, {
 	useEffect,
 	useState,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authcontext";
+import { ButtonRight } from "../button";
+import "./login.css";
 
 const userSignInDetails = {
 	name: "",
@@ -43,7 +43,7 @@ export default function Login() {
 				setAuthSetPlayerData(actualData)
 			)
 			.catch((error) => {
-				console.log(error);
+				alert(error);
 			});
 	};
 
@@ -61,31 +61,57 @@ export default function Login() {
 	};
 
 	return (
-		<div>
-			{authplayerData.status === "fail" ? (
-				<h2>{authplayerData.error}</h2>
-			) : null}
+		<div className="formcontainer">
+			<h2>Log-in</h2>
+			<form
+				onSubmit={handleSubmit}
+				className="signinForm"
+			>
+				<label
+					className="signinLabel"
+					htmlFor="signInName"
+				>
+					<h3>Name</h3>
 
-			<h1>Log-in</h1>
-			<form onSubmit={handleSubmit}>
-				<label>Name</label>
-				<input
-					type="text"
-					value={signInDetails.name}
-					name="name"
-					onChange={handleChange}
-				/>
-				<label>Password</label>
-				<input
-					type="password"
-					value={signInDetails.password}
-					name="password"
-					onChange={handleChange}
-				/>
-				<button type="submit" id="sign-in-btn">
+					<input
+						className="signinInput"
+						type="text"
+						value={signInDetails.name}
+						name="name"
+						onChange={handleChange}
+						id="signInName"
+					/>
+				</label>
+				<label
+					className="signinLabel"
+					htmlFor="signInPassword"
+				>
+					<h3>Password</h3>
+
+					<input
+						className="signinInput"
+						type="password"
+						value={signInDetails.password}
+						name="password"
+						onChange={handleChange}
+						id="signInPassword"
+					/>
+				</label>
+				<ButtonRight
+					type="submit"
+					id="sign-in-btn"
+					text="Sign-In"
+				>
 					Sign-In
-				</button>
+				</ButtonRight>
 			</form>
+			<div className="errorText">
+				{authplayerData.status === "fail" ? (
+					<p>
+						The {authplayerData.error} please try again.
+					</p>
+				) : null}
+			</div>
 		</div>
 	);
 }
