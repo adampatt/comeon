@@ -1,7 +1,3 @@
-Button props https://github.com/jsx-eslint/eslint-plugin-react/issues/1555
-
-Card - Vertical text align on title
-
 # ComeonGroup interview challenge
 
 Login / logout functionality with private routes. Content filtering and game on page loading.
