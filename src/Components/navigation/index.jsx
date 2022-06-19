@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import ProfileWidget from "../profile-widget";
 import SearchBar from "../searchbar";
 import { ButtonLeft } from "../button";
@@ -44,3 +44,10 @@ function Navigation({
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+	setSearchBarResult: PropTypes.func.isRequired,
+	SearchBarDataSelection:
+		PropTypes.func.isRequired,
+	searchBarResult: PropTypes.string.isRequired,
+};

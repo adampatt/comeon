@@ -1,12 +1,13 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/button-has-type */
+
 import React from "react";
+import PropTypes from "prop-types";
 import "./button.css";
 import {
 	FaAngleLeft,
 	FaAngleRight,
 } from "react-icons/fa";
 
-/* eslint-disable react/button-has-type */
 export function ButtonLeft({
 	text,
 	type,
@@ -18,19 +19,32 @@ export function ButtonLeft({
 			type={type}
 			onClick={onClick}
 		>
-			<FaAngleLeft />
+			<span className="arrowIcon">
+				<FaAngleLeft />
+			</span>
 			{text}
 		</button>
 	);
 }
-/* eslint-disable react/button-has-type */
 
-/* eslint-disable react/button-has-type */
 export function ButtonRight({ text, type }) {
 	return (
 		<button className="button" type={type}>
 			{text}
-			<FaAngleRight />
+			<span className="arrowIcon">
+				<FaAngleRight />
+			</span>
 		</button>
 	);
-} /* eslint-disable react/button-has-type */
+}
+
+ButtonLeft.propTypes = {
+	text: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
+
+ButtonRight.propTypes = {
+	text: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+};

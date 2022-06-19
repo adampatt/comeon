@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
 import React, {
 	useState,
 	useEffect,
 } from "react";
+import PropTypes from "prop-types";
 import useDebounce from "../../hooks/useDebounce";
 import "./searchbar.css";
 
@@ -38,3 +38,9 @@ function SearchBar({
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+	setSearchBarResult: PropTypes.func.isRequired,
+	SearchBarDataSelection:
+		PropTypes.func.isRequired,
+};

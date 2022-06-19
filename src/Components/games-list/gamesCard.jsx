@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/prop-types */
+
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { ButtonRight } from "../button";
 import "./gameslist.css";
@@ -32,3 +32,10 @@ export default function GamesCard({
 		</div>
 	);
 }
+
+GamesCard.propTypes = {
+	description: PropTypes.string.isRequired,
+	icon: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	code: PropTypes.string.isRequired,
+};

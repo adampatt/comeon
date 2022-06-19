@@ -36,3 +36,7 @@
 	will-change: "";
 	-webkit-tap-highlight-color: transparent;
 }
+
+.arrowIcon {
+	color: lightgray;
+}

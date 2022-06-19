@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, {
 	useEffect,
 	useState,
@@ -45,7 +43,7 @@ export default function Login() {
 				setAuthSetPlayerData(actualData)
 			)
 			.catch((error) => {
-				console.log(error);
+				alert(error);
 			});
 	};
 
@@ -69,27 +67,36 @@ export default function Login() {
 				onSubmit={handleSubmit}
 				className="signinForm"
 			>
-				<label className="signinLabel">
+				<label
+					className="signinLabel"
+					htmlFor="signInName"
+				>
 					<h3>Name</h3>
-				</label>
-				<input
-					className="signinInput"
-					type="text"
-					value={signInDetails.name}
-					name="name"
-					onChange={handleChange}
-				/>
-				<label className="signinLabel">
-					<h3>Password</h3>
-				</label>
-				<input
-					className="signinInput"
-					type="password"
-					value={signInDetails.password}
-					name="password"
-					onChange={handleChange}
-				/>
 
+					<input
+						className="signinInput"
+						type="text"
+						value={signInDetails.name}
+						name="name"
+						onChange={handleChange}
+						id="signInName"
+					/>
+				</label>
+				<label
+					className="signinLabel"
+					htmlFor="signInPassword"
+				>
+					<h3>Password</h3>
+
+					<input
+						className="signinInput"
+						type="password"
+						value={signInDetails.password}
+						name="password"
+						onChange={handleChange}
+						id="signInPassword"
+					/>
+				</label>
 				<ButtonRight
 					type="submit"
 					id="sign-in-btn"

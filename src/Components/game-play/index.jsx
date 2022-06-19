@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import "./comeon.game-1.0.min";
 import {
@@ -26,4 +25,5 @@ function GamePlay() {
 		</div>
 	);
 }
+
 export default GamePlay;
